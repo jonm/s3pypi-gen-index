@@ -52,7 +52,7 @@ def handle(event, context):
     projects.sort()
 
     html = ("<!DOCTYPE html><html><body>" +
-            map(lambda p: "<a href=\"./%s/\">%s</a>" % (p, p)) +
+            map(lambda p: "<a href=\"./%s/\">%s</a>" % (p, p), projects) +
             "</body></html>")
     
     idx = s3.Object(config['INDEX_BUCKET'], 'index.html')
