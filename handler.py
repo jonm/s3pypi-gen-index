@@ -46,7 +46,7 @@ def handle(event, context):
 
     projects = []
     for obj in bucket.objects.all():
-        if obj.key != "index.html":
+        if obj.key != "index.html" and obj.key.find("/") >= 0:
             path, filename = obj.key.split("/")
             if filename == "index.html" and path not in projects:
                 projects.append(path)
