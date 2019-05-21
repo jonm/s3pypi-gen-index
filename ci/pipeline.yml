@@ -23,4 +23,4 @@ jobs:
       file: source/ci/task_make.yml
     - put: artifacts
       params:
-        file: s3pypi-gen-index/s3pypi-gen-index-*.zip
+        file: dist/s3pypi-gen-index-*.zip

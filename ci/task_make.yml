@@ -9,6 +9,9 @@ image_resource:
 inputs:
 - name: source
 
+outputs:
+- name: dist
+  
 run:
   dir: source
   path: ci/task_make.sh
