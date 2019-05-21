@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-VERSION = 0.3.0
-
 all: s3pypi-gen-index-$(VERSION).zip
 
 .dep: requirements.txt
@@ -23,7 +21,7 @@ all: s3pypi-gen-index-$(VERSION).zip
 s3pypi-gen-index-$(VERSION).zip: .dep handler.py
 	python -m compileall .
 	rm -f s3pypi-gen-index-$(VERSION).zip
-	zip -r s3pypi-gen-index-$(VERSION).zip . -x .git/\* -x \.* -x \*~ -x Makefile
+	zip -r s3pypi-gen-index-$(VERSION).zip . -x .git/\* -x \.* -x \*~ -x Makefile -x ci/\*
 
 clean:
 	rm -f *.pyc s3pypi-gen-index-$(VERSION).zip *~
