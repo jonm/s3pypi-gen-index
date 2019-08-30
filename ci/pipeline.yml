@@ -65,6 +65,13 @@ jobs:
       trigger: true
     - task: make
       file: source/ci/task_make.yml
+    - task: verify-unique-version
+      file: source/ci/task_verify_unique_version.yml
+      params:
+        BUCKET: ((dest-s3-bucket))
+        PROJECT: s3pypi-gen-index
+        AWS_ACCESS_KEY_ID: ((aws-access-key-id))
+        AWS_SECRET_ACCESS_KEY: ((aws-secret-access-key))
     - put: artifacts
       params:
         file: dist/s3pypi-gen-index-*.zip
