@@ -59,7 +59,7 @@ def handle(event, context):
             "</body></html>")
     
     idx = s3.Object(config['INDEX_BUCKET'], 'index.html')
-    idx.put(html)
+    idx.put(Body=html, ContentType="text/html")
         
 
 
